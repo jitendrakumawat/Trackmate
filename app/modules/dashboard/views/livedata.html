@@ -1,0 +1,12 @@
+﻿ <ng-map zoom="18" center="[{{tabledata.data[0].latitude}},{{tabledata.data[0].longitude}}]"  map-type-id="MapTypeId.ROADMAP"  >
+    <marker id="{{vehicledata.vehicle_no}}" ng-repeat="vehicledata in tabledata.data track by $index" position="{{vehicledata.latitude}},{{vehicledata.longitude}}" centered="false" icon="./images/car3.png" on-click="showDetails(vehicledata)"></marker>
+    <info-window id="info_window">
+        <div ng-non-bindable="">
+          Vehicle No: {{vehicledatas.vehicle_no}}<br/>
+          Driver Name: {{vehicledatas.driver_name}}<br/>
+          Vehicle type: {{vehicledatas.vehicle_type}}</br>
+          speed: {{vehicledatas.speed}} KM/H<br/>
+          Last Updated Time:{{vehicledatas.created | date:'short'}}
+        </div>
+      </info-window>
+</ng-map>

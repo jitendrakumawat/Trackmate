@@ -1,0 +1,195 @@
+﻿<!--
+Author: Ranjithprabhu K
+Page Description: Dashboard page
+Date: 05 Jan 2016
+-->
+<style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-font-smoothing:antialiased;
+    -moz-font-smoothing:antialiased;
+    -o-font-smoothing:antialiased;
+    font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+body {
+    font-family:"Open Sans", Helvetica, Arial, sans-serif;
+    font-weight:300;
+    font-size: 12px;
+    line-height:30px;
+    color:#777;
+    background:#0CF;
+}
+
+.container {
+    max-width:400px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+    background:#F9F9F9;
+    padding:25px;
+    margin:50px 0;
+}
+
+#contact h3 {
+    color: #F96;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#contact h4 {
+    margin:5px 0 15px;
+    display:block;
+    font-size:13px;
+}
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+    width:100%;
+    border:1px solid #CCC;
+    background:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+    -webkit-transition:border-color 0.3s ease-in-out;
+    -moz-transition:border-color 0.3s ease-in-out;
+    transition:border-color 0.3s ease-in-out;
+    border:1px solid #AAA;
+}
+
+#contact textarea {
+    height:100px;
+    max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#0CF;
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+    background:#09C;
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+    outline:0;
+    border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+.editmsgs{
+    color: red;
+}
+
+</style>
+
+<!-- script for live chat facilities -->
+ <script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?4ns2SzmDivHGOYPZxRJD1eRkjW6uHW75";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!-- live chat -->
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Contact Me
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Contact Me</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+    <div class="col-md-6 col-md-offset-3">
+      <form id="contact" name="ContactForm" novalidate>
+        <h3 class="text-center">Contact</h3>
+        <h4>Contact us today, and get reply with in 24 hours!</h4>
+        <fieldset>
+          <input  placeholder="Your name" type="text" tabindex="1" ng-model="name" >
+        </fieldset>
+        <fieldset>
+          <input type="email" placeholder="Your Email Address" type="email" tabindex="2" ng-model="email" name="email" required>
+        </fieldset>
+         <span ng-show="ContactForm.email.$touched && ContactForm.email.$error.required" class="editmsgs">email id required. Enter a unique name </span>
+           <span ng-show="ContactForm.email.$error.email" class="editmsgs">Not a valid e-mail address</span><br>
+        <fieldset>
+          <input  placeholder="Your Phone Number" type="tel" ng-model="phone" tabindex="3" name="phone" required>
+        </fieldset>
+        <span ng-show="ContactForm.phone.$touched && ContactForm.phone.$error.required" class="editmsgs">phone number  required. Enter valid phone number </span>
+        <fieldset>
+          <textarea   placeholder="Type your Message Here...." tabindex="5" ng-model="message" name="message" required></textarea>
+        </fieldset>
+        <span ng-show="ContactForm.message.$touched && ContactForm.message.$error.required" class="editmsgs">message field required. Enter your message </span>
+        <fieldset>
+          <button name="submit" type="submit" ng-click="submit()" ng-disabled="ContactForm.$invalid">Submit</button>
+        </fieldset>
+
+     </form>
+     </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-warning">
+                    <div class="panel-body">
+                       
+                        <iframe  src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJl8XlZvQRrjsRVLOYmc7werY&key=AIzaSyAB569o_E5sOmlq0OMFP41sZffVlQ3PGa8" height="450" frameborder="0" style="border:0;width:100%;"  allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section><!-- /.content -->
+
+ 
+
+ 
+ 
